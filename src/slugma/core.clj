@@ -6,5 +6,7 @@
   "Main entry point for this module if ran directly."
   [& args]
   (cond
-    (not= (first args) nil) (println (slugma/slugma (first args)))
-    (= (first args) nil) (println "usage: slugma.core [STRING_TO_SLUG]")))
+    (= (first args) nil) (println "usage: slugma.core [STRINGS_TO_SLUG ...]")
+    (not= (first args) nil)
+      (doseq [arg args]
+        (println (slugma/slugma arg)))))
