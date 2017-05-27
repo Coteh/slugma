@@ -5,4 +5,6 @@
 (defn -main
   "Main entry point for this module if ran directly."
   [& args]
-  (println (slugma/slugma "Hello World!")))
+  (cond
+    (not= (first args) nil) (println (slugma/slugma (first args)))
+    (= (first args) nil) (println "usage: slugma.core [STRING_TO_SLUG]")))
