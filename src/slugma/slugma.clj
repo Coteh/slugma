@@ -3,11 +3,10 @@
 
 (defn slugma [line]
   (def result
-    (str/lower-case
-      (str/replace line
-        #"[^A-Za-z0-9]+" "-")))
-  (if (.endsWith result "-")
-    (def result (.substring result 0 (- (count result) 1))))
-  (if (.startsWith result "-")
-    (.substring result 1 (count result))
-    result))
+    (-> line
+      (str/replace #"[^A-Za-z0-9]+" "-")
+      str/lower-case))
+
+  (cond-> result
+    (.endsWith result "-") (.substring 0 (- (count result) 1))
+    (.startsWith result "-") (.substring 1)))
