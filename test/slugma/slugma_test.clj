@@ -20,3 +20,8 @@
   (testing "Accented letters become their unaccented counterparts."
     (is (= (slugma.slugma/slugma "Does this work éh?")
     "does-this-work-eh"))))
+
+(deftest common-word-test
+  (testing "Common words such as conjectures are removed."
+    (is (= (slugma.slugma/slugma "This, That and the Other! An Outré Collection")
+    "this-that-other-outre-collection"))))
