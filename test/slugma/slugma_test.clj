@@ -13,7 +13,7 @@
 
 (deftest multi-test
   (testing "Collapses multiples of a non-alphanumeric character. (eg. spaces, dashes, etc.)"
-    (is (= (slugma.slugma/slugma "We have  an extra space and -- extra dashes")
+    (is (= (slugma.slugma/slugma "We have  an extra space and -- extra dashes" :should-remove-common-words false)
     "we-have-an-extra-space-and-extra-dashes"))))
 
 (deftest accent-test
