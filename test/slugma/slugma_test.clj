@@ -25,3 +25,8 @@
   (testing "Common words such as conjectures are removed."
     (is (= (slugma.slugma/slugma "This, That and the Other! An Outré Collection")
     "this-that-other-outre-collection"))))
+
+(deftest apostrophe-test
+  (testing "Apostrophe is removed and the letters surrounding it become one word."
+    (is (= (slugma.slugma/slugma "You're awesome")
+      "youre-awesome"))))
