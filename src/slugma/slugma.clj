@@ -17,14 +17,6 @@
   (-> str
     (str/replace #"(?i)\b(the|or|and|for|nor|but|yet|so|an)\b+" "")))
 
-;;;; remove-connective-punctuation
-;;; Removes "connective" punctuation marks.
-;;; In other words, punctuation marks that are part of a word.
-;;; Example(s): won't, elephant's, a's
-(defn remove-connective-punctuation [str]
-  (-> str
-    (str/replace #"(?i)\b([',])\b+" "")))
-
 ;;;; slugma
 ;;; The main slugma module function
 ;;; Performs some filtering to get the slugged
@@ -35,8 +27,8 @@
                 remove-diacritics
                 (cond->
                   (= should-remove-common-words true) remove-common-words)
-                remove-connective-punctuation
-                (str/replace #"[^A-Za-z0-9]+" "-")
+                (str/replace #"[^A-Za-z0-9 -]+" "")
+                (str/replace #"[ -]+" "-")
                 str/lower-case)]
         (cond-> result
           (.endsWith result "-") (.substring 0 (- (count result) 1))

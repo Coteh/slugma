@@ -36,3 +36,13 @@
   (testing "Commas are removed and the letters surrounding become one word."
     (is (= (slugma.slugma/slugma "this,should,be,one,word")
               "thisshouldbeoneword"))))
+
+(deftest symbols-test
+  (testing "Any symbols besides spaces should not turn into dashes."
+    (is (= (slugma.slugma/slugma "Lorem!ipsum@dolor#sit$amet%consectetur^adipiscing&elit*sed(do)eiusmod=tempor+incididunt~")
+          "loremipsumdolorsitametconsecteturadipiscingelitseddoeiusmodtemporincididunt"))))
+
+(deftest emoji-test
+  (testing "Emoji should remain as part of the slugged string."
+    (is (= (slugma.slugma/slugma "I love ☕️")
+        "i-love-☕️"))))
