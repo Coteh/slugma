@@ -23,7 +23,7 @@
 ;;; Example(s): won't, elephant's, a's
 (defn remove-connective-punctuation [str]
   (-> str
-    (str/replace #"(?i)\b(')\b+" "")))
+    (str/replace #"(?i)\b([',])\b+" "")))
 
 ;;;; slugma
 ;;; The main slugma module function
