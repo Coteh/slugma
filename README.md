@@ -2,18 +2,22 @@
 
 A simple Clojure module that will take a string of text and slugify it into a string appropriate to place as part of a URL for a webpage.
 
-This module is a pretty basic implementation. It replaces all non-ASCII character sequences with dashes, as well as breaks up any accented characters.
-(into regular character plus diacritic, and removes the diacritic)
+It replaces all spaces with dashes, breaks up any accented characters, removes common words such as conjunctions, and
+keeps words connected by symbols and punctuation such as commas and apostrophes together.
+
 This is my first venture into functional programming and this was made mainly as a fun way
 to get the hang of Clojure and its syntax.
 
 ## Installation
 
-FIXME: Add instructions for installing this module
+To compile the program with Leiningen, either run `lein jar` to generate a jar with just the project class files and no dependencies,
+or run `lein uberjar` to generate a standalone jar with both project class files and all dependencies needed.
 
 ## Usage (cli)
 
-    $ java -jar slugma-0.1.0-standalone.jar [args ...]
+If you built the project already, you can run it like this:
+
+    $ java -jar slugma.jar [args ...]
 
 Or, if you have Leiningen installed, just do:
 
