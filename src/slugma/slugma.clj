@@ -1,4 +1,5 @@
 (ns slugma.slugma
+  (:gen-class)
   (:require [clojure.string :as str]))
 
 ;;;; remove-diacritics

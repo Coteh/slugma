@@ -1,4 +1,5 @@
 (ns slugma.core
+  (:gen-class)
   (:require [clojure.string :as str])
   (:require [slugma.slugma :as slugma]))
 
