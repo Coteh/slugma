@@ -1,4 +1,4 @@
-# slugma
+# slugma [![Build Status](https://travis-ci.org/Coteh/slugma.svg?branch=master)](https://travis-ci.org/Coteh/slugma)
 
 A simple Clojure module that will take a string of text and slugify it into a string appropriate to place as part of a URL for a webpage.
 
