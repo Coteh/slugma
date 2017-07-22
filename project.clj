@@ -6,5 +6,4 @@
   :dependencies [[org.clojure/clojure "1.8.0"]]
   :main slugma.core
   :aot [slugma.core]
-  :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :target-path "target/%s")
